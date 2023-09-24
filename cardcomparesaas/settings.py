@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-p*o+o2g&d^6++bo=@mv3npk=-nawn)uo5!1mg#lu-9_#@42e$5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cardcompare.pradnyanandjadh.repl.co',]
 
 
 # Application definition

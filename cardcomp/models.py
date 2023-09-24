@@ -27,6 +27,9 @@ class Card(models.Model):
     annual_fees_remark = models.CharField(max_length=200, blank=True)
     welcome_benefit = models.TextField(max_length=500, blank=True)
 
+    def __str__(self):
+        return self.card_name
+
 
 class Offer(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
@@ -46,3 +49,6 @@ class Offer(models.Model):
     offer_spec_max_upto = models.FloatField()
     offer_spec_freq = models.FloatField()
     offer_spec_remark = models.TextField(max_length=500, blank=True)
+
+    def __str__(self):
+        return self.card
