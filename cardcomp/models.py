@@ -22,5 +22,27 @@ class Card(models.Model):
                  ('Canara_Bank', 'Canara_Bank'))
     bank = models.CharField(max_length=200, choices=bank_list, default='sbi')
     joining_fees = models.FloatField()
+    joining_fees_remark = models.CharField(max_length=200, blank=True)
     annual_fees = models.FloatField()
-    welcome_benefit = models.TextField(max_length=500, blank = True)
+    annual_fees_remark = models.CharField(max_length=200, blank=True)
+    welcome_benefit = models.TextField(max_length=500, blank=True)
+
+
+class Offer(models.Model):
+    card = models.ForeignKey(Card, on_delete=models.CASCADE)
+    offer_type = (
+        ('Grocery', 'Grocery'),
+        ('food', 'food'),
+        ('online_shopping', 'online_shopping'),
+        ('utility_bill', 'utility_bill'),
+        ('fuel', 'fuel'),
+        ('movies', 'movies'),
+        ('airline', 'airline'),
+        ('other_features', 'other_features'),
+    )
+    offer_spec = models.CharField(max_length=200, choices=offer_type, default='other_features')
+    offer_spec_abt = models.CharField(max_length=200, blank=True)
+    offer_spec_per = models.FloatField()
+    offer_spec_max_upto = models.FloatField()
+    offer_spec_freq = models.FloatField()
+    offer_spec_remark = models.TextField(max_length=500, blank=True)
